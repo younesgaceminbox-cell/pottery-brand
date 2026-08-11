@@ -2,21 +2,32 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/image';
 import HeroPremium from '@/components/HeroPremium';
 import BrandValues from '@/components/BrandValues';
 import FeaturedProducts from '@/components/FeaturedProducts';
 import { getProducts } from '@/lib/products';
+import { Product } from '@/types';
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.8 },
-  viewport: { once: true, margin: '-100px' },
+  initial: {
+    opacity: 0,
+    y: 30,
+  },
+  whileInView: {
+    opacity: 1,
+    y: 0,
+  },
+  transition: {
+    duration: 0.6,
+  },
+  viewport: {
+    once: true,
+    margin: '0px',
+  },
 };
 
 export default function Home() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     setProducts(getProducts());
