@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root Variables */
+:root {
+  --color-ivory: #F4EBDD;
+  --color-cream: #F9F6F2;
+  --color-sand: #DCC7AA;
+  --color-clay: #A85F35;
+  --color-terracotta: #9B4F2F;
+  --color-earth: #6B5137;
+  --color-deep-brown: #2C211B;
+  --color-charcoal: #3D3A37;
+  --color-text: #2C211B;
+  --color-text-light: #6B5137;
+  --color-text-muted: #8B7355;
+  --color-bg: #F4EBDD;
+  --color-bg-secondary: #F9F6F2;
+  --color-border: #E8D9C6;
+}
+
+html[class~="dark"] {
+  --color-text: #F4EBDD;
+  --color-text-light: #D4C4B0;
+  --color-text-muted: #A89878;
+  --color-bg: #13100C;
+  --color-bg-secondary: #1F1813;
+  --color-border: #2A2217;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography System */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 3.5rem);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+a {
+  color: var(--color-clay);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-terracotta);
+}
+
+/* Arabic Display Typography */
+.arabic-display {
+  font-family: 'Amiri', serif;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  direction: rtl;
+  text-align: center;
+  color: var(--color-clay);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-clay);
+  border-radius: 5px;
+  border: 2px solid var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-terracotta);
+}
+
+::selection {
+  background-color: var(--color-clay);
+  color: white;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+html[class~="dark"] .glass {
+  background: rgba(31, 24, 19, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(244, 235, 221, 0.1);
+}
+
+/* Layer Components */
+@layer components {
+  .container-editorial {
+    @apply max-w-6xl mx-auto px-4 md:px-8 lg:px-12;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3 bg-clay hover:bg-terracotta text-white rounded-sm font-medium transition-all duration-300 ease-out shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 bg-transparent border-2 border-clay text-clay hover:bg-clay hover:text-white rounded-sm font-medium transition-all duration-300;
+  }
+
+  .btn-tertiary {
+    @apply text-clay font-medium underline decoration-2 hover:text-terracotta transition-colors;
+  }
+
+  .card-premium {
+    @apply bg-white dark:bg-dark-card rounded-sm p-8 shadow-md dark:border dark:border-dark-border transition-all duration-300;
+  }
+
+  .card-premium:hover {
+    @apply shadow-xl;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-clay mb-4;
+  }
+
+  .divider {
+    @apply w-16 h-px bg-gradient-to-r from-clay via-clay to-transparent;
+  }
+
+  .input-premium {
+    @apply w-full px-4 py-3 rounded-sm border-2 border-clay/20 bg-white dark:bg-dark-card text-clay dark:text-cream placeholder-clay/50 dark:placeholder-cream/50 transition-all duration-200 focus:outline-none focus:border-clay focus:ring-1 focus:ring-clay/20;
+  }
+
+  .transition-smooth {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .transition-smooth-lg {
+    @apply transition-all duration-500 ease-out;
+  }
+}
+
+/* Image Styles */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Clay Texture */
+.clay-texture {
+  position: relative;
+  overflow: hidden;
+}
+
+.clay-texture::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' seed='1'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='0.5'/%3E%3C/filter%3E%3Crect width='100' height='100' fill='%23a85f35' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Paper Grain Background */
+.paper-grain {
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .no-print {
+    display: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
