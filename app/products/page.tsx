@@ -178,13 +178,13 @@ export default function ProductsPage() {
           {/* Products Grid */}
           <div className="lg:col-span-3">
             {filtered.length > 0 ? (
-              <motion.div 
-                className="grid grid-cols-1 md:grid-cols-2 gap-8"
-                variants={{ staggerChildren: 0.1 }}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={{ once: true }}
-              >
+              <motion.div
+  className="grid grid-cols-1 md:grid-cols-2 gap-8"
+  initial="initial"
+  whileInView="whileInView"
+  viewport={{ once: true }}
+  transition={{ staggerChildren: 0.1 }}
+>
                 {filtered.map((product) => (
                   <motion.div key={product.id} variants={fadeInUp}>
                     <Link
