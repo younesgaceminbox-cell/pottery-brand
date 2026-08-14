@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Download, Upload, RotateCcw } from 'lucide-react';
 import * as ProductLib from '@/lib/products';
 

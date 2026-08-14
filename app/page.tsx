@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import HeroPremium from '@/components/HeroPremium';
 import BrandValues from '@/components/BrandValues';
 import FeaturedProducts from '@/components/FeaturedProducts';
 import { getProducts } from '@/lib/products';
 import { Product } from '@/types';
+import Link from 'next/link';
 
 const fadeInUp = {
   initial: {
@@ -92,18 +93,18 @@ export default function Home() {
               Parcourez notre collection complète et trouvez la pièce de poterie parfaite pour votre maison
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <Link
                 href="/products"
                 className="px-8 py-4 bg-copper hover:bg-copper/90 text-white font-medium rounded-sm transition-all duration-300"
               >
                 Découvrir la Collection
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/contact"
                 className="px-8 py-4 border-2 border-copper text-copper hover:bg-copper hover:text-deep-brown font-medium rounded-sm transition-all duration-300"
               >
                 Nous Contacter
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>

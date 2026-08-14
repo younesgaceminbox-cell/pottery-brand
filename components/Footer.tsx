@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Facebook, Instagram, Music, Mail, Phone, MapPin } from 'lucide-react';
 
 interface ContactSettings {

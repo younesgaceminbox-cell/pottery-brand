@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Search, SlidersHorizontal, ArrowRight } from 'lucide-react';
 import { getProducts } from '@/lib/products';
 import { searchProducts, sortProducts, formatPrice } from '@/lib/utils';

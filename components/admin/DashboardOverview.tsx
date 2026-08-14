@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Product } from '@/types';
 import { formatPrice } from '@/lib/utils';
 import * as ProductLib from '@/lib/products';

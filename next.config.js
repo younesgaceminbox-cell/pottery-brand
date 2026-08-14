@@ -8,8 +8,9 @@ const nextConfig = {
       },
     ],
   },
+
   compress: true,
-  swcMinify: true,
+
   experimental: {
     optimizePackageImports: ['framer-motion', 'lucide-react'],
   },

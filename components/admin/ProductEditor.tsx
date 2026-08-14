@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 import { Product } from '@/types';
 import * as ProductLib from '@/lib/products';
@@ -15,15 +15,23 @@ interface ProductEditorProps {
 }
 
 export default function ProductEditor({ product, onSave, onCancel }: ProductEditorProps) {
-  const [formData, setFormData] = useState({
-    name: product?.name || '',
-    price: product?.price || 0,
-    description: product?.description || '',
-    category: product?.category || '',
-    images: product?.images || [],
-    featured: product?.featured || false,
-    available: product?.available || true,
-  });
+  const [formData, setFormData] = useState<{
+  name: string;
+  price: number;
+  description: string;
+  category: string;
+  images: string[];
+  featured: boolean;
+  available: boolean;
+}>({
+  name: '',
+  price: 0,
+  description: '',
+  category: '',
+  images: [],
+  featured: false,
+  available: true,
+});
 
   const [newImageUrl, setNewImageUrl] = useState('');
   const [draggedImageIndex, setDraggedImageIndex] = useState<number | null>(null);

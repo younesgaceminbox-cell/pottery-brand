@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'motion/react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -119,7 +119,6 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
           {isOpen && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
@@ -146,7 +145,6 @@ export default function Navbar() {
               </Link>
             </motion.div>
           )}
-        </AnimatePresence>
       </nav>
 
       {/* Spacer for fixed navbar */}
