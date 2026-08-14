@@ -382,7 +382,16 @@ export default function ProductDetailPage({
 
               <motion.div
                 className="grid grid-cols-1 md:grid-cols-3 gap-8"
-                variants={{ staggerChildren: 0.1 }}
+                initial="initial"
+                animate="animate"
+                variants={{
+                  initial: {},
+                  animate: {
+                    transition: {
+                      staggerChildren: 0.1,
+                    },
+                  },
+                }}
               >
                 {relatedProducts.map((related) => (
                   <motion.div
